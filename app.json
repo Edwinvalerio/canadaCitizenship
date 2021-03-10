@@ -1,32 +1,28 @@
 {
   "expo": {
-    "name": "canadaCitizenship",
+    "name": "Canada Citizenship‬ Test",
+    "icon": "./assets/icons/app-icon.png",
+    "version": "1",
     "slug": "canadaCitizenship",
-    "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+    "primaryColor": "#000000",
+    "notification": {
+      "icon": "./assets/icons/notification-icon.png",
+      "color": "#000000"
     },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "androidStatusBarColor": "#000000",
     "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+      "bundleIdentifier": "com.bostondev.canadaCitizenship",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-6057363877580246~9417432624"
       }
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "android": {
+      "package": "com.bostondev.canadaCitizenship",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-6057363877580246~9417432624"
+      }
+    },
+    "description": "Perfect for everyone, teen drivers and adult drivers taking their Driving License Test Exam! DMV Driver License Reviewer is beneficial for you! This can help you pass your written/knowledge exam wherever you are! Just download the app and download your state's official manual. No other external app needed."
   }
 }
