@@ -248,85 +248,65 @@ class QuestionScreen extends Component {
 
     if (this.state.question_list.length) {
       return (
-        <View style={{ backgroundColor: "#006FFF", minHeight: "100%", display: "flex", paddingTop: 50, flex: 1 }}>
-          <Banner />
-          <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", padding: 5 }}>
-            <TouchableOpacity onPress={navigation.openDrawer} style={{ marginLeft: "5%" }}>
-              <View style={{ width: 50, height: 10, backgroundColor: "white", margin: 2, borderRadius: 5 }}></View>
-              <View style={{ width: 50, height: 10, backgroundColor: "white", margin: 2, borderRadius: 5 }}></View>
-              <View style={{ width: 50, height: 10, backgroundColor: "white", margin: 2, borderRadius: 5 }}></View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.speak(question)}>
-              <Text style={{ fontSize: 55 }}>🔊</Text>
-            </TouchableOpacity>
-            {/* <TouchableOpacity onPress={() => this.addFavorite(last_question)}>
+        <ImageBackground source={background_image} style={{ flex: 1, resizeMode: "cover", justifyContent: "center" }}>
+          <View style={{ backgroundColor: "rgba(0,0,0,.5)", minHeight: "100%", display: "flex", paddingTop: 50, flex: 1 }}>
+            <Banner />
+            <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", padding: 5 }}>
+              <TouchableOpacity onPress={navigation.openDrawer} style={{ marginLeft: "5%" }}>
+                <View style={{ width: 50, height: 10, backgroundColor: "white", margin: 2, borderRadius: 5 }}></View>
+                <View style={{ width: 50, height: 10, backgroundColor: "white", margin: 2, borderRadius: 5 }}></View>
+                <View style={{ width: 50, height: 10, backgroundColor: "white", margin: 2, borderRadius: 5 }}></View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.speak(question)}>
+                <Text style={{ fontSize: 55 }}>🔊</Text>
+              </TouchableOpacity>
+              {/* <TouchableOpacity onPress={() => this.addFavorite(last_question)}>
                 <Text style={{ fontSize: 50 }}>⭐</Text>
               </TouchableOpacity> */}
-          </View>
-
-          <View style={{ height: 120, display: "flex", alignItems: "center", justifyContent: "center", margin: 5 }}>
-            {/* QUESTION  */}
-            <Text style={{ textAlign: "center", fontSize: 20, fontWeight: "500", color: "white" }}>{question || ""}</Text>
-            {/* QUESTION  */}
-
-            <View style={{ display: "flex", flexDirection: "row", padding: 5, backgroundColor: "rgba(0,0,0,.5)", borderRadius: 5 }}>
-              <Text style={{ color: "white", fontSize: 15 }}>
-                Question {this.state.asnwer_track.length} of {configurations.total_questions}
-              </Text>
             </View>
-          </View>
 
-          <View style={{ flex: 1 }}>
-            <View style={{ flex: 3, marginBottom: 5 }}>
-              <ScrollView persistentScrollbar={true} style={{ display: "flex", marginTop: 3, overflow: "hidden" }}>
-                <View style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  {this.state.question_list[this.state.question_list.length - 1].image ? (
-                    <Image
-                      style={{ resizeMode: "contain", justifyContent: "center", width: 200, height: 200 }}
-                      source={{
-                        uri: this.state.question_list[this.state.question_list.length - 1].image,
-                      }}
-                    />
-                  ) : null}
+            <View style={{ height: 120, display: "flex", alignItems: "center", justifyContent: "center", margin: 5 }}>
+              {/* QUESTION  */}
+              <Text style={{ textAlign: "center", fontSize: 20, fontWeight: "500", color: "white" }}>{question || ""}</Text>
+              {/* QUESTION  */}
 
-                  {this.state.question_list[this.state.question_list.length - 1].answers.map((item, index) => (
-                    <TouchableOpacity key={index} onPress={() => this.validateAnswer(item)} disabled={this.state.answered}>
-                      <AnswerCard
-                        answer={item}
-                        isRed={item == correnctAnswer}
-                        letter={answers_letters[index]}
-                        answerColor={answers_letters_color[index]}
-                        isAnswered={this.state.answered}
-                        isCorrectAnswer={item == this.state.question_list[this.state.question_list.length - 1].correnctAnswer}
+              <View style={{ display: "flex", flexDirection: "row", padding: 5, backgroundColor: "rgba(0,0,0,.5)", borderRadius: 5 }}>
+                <Text style={{ color: "white", fontSize: 15 }}>
+                  Question {this.state.asnwer_track.length} of {configurations.total_questions}
+                </Text>
+              </View>
+            </View>
+
+            <View style={{ flex: 1 }}>
+              <View style={{ flex: 3, marginBottom: 5 }}>
+                <ScrollView persistentScrollbar={true} style={{ display: "flex", marginTop: 3, overflow: "hidden" }}>
+                  <View style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    {this.state.question_list[this.state.question_list.length - 1].image ? (
+                      <Image
+                        style={{ resizeMode: "contain", justifyContent: "center", width: 200, height: 200 }}
+                        source={{
+                          uri: this.state.question_list[this.state.question_list.length - 1].image,
+                        }}
                       />
-                    </TouchableOpacity>
-                  ))}
-                </View>
-              </ScrollView>
-            </View>
+                    ) : null}
 
-            <View style={{ flex: 0.5, display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
-              <TouchableOpacity
-                style={{
-                  width: 200,
-                  height: 50,
-                  margin: "auto",
-                  marginTop: 10,
-                  marginBottom: 10,
-                  backgroundColor: this.state.asnwer_track.length ? "#F6837E" : "#c4c4c4",
-                  borderRadius: 10,
-                  justifyContent: "center",
-                  disabled: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-                onPress={() => this.reStartQuiz()}
-                disabled={!this.state.asnwer_track.length}
-              >
-                <Text style={{ fontSize: 21, fontWeight: "bold", color: "white" }}>RESTART</Text>
-              </TouchableOpacity>
+                    {this.state.question_list[this.state.question_list.length - 1].answers.map((item, index) => (
+                      <TouchableOpacity key={index} onPress={() => this.validateAnswer(item)} disabled={this.state.answered}>
+                        <AnswerCard
+                          answer={item}
+                          isRed={item == correnctAnswer}
+                          letter={answers_letters[index]}
+                          answerColor={answers_letters_color[index]}
+                          isAnswered={this.state.answered}
+                          isCorrectAnswer={item == this.state.question_list[this.state.question_list.length - 1].correnctAnswer}
+                        />
+                      </TouchableOpacity>
+                    ))}
+                  </View>
+                </ScrollView>
+              </View>
 
-              {this.state.answered ? (
+              <View style={{ flex: 0.5, display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
                 <TouchableOpacity
                   style={{
                     width: 200,
@@ -334,22 +314,44 @@ class QuestionScreen extends Component {
                     margin: "auto",
                     marginTop: 10,
                     marginBottom: 10,
-                    backgroundColor: "white",
+                    backgroundColor: this.state.asnwer_track.length ? "#F6837E" : "#c4c4c4",
                     borderRadius: 10,
                     justifyContent: "center",
                     disabled: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                   }}
-                  onPress={() => this.addQuestion(generateQuestions())}
-                  disabled={!this.state.answered}
+                  onPress={() => this.reStartQuiz()}
+                  disabled={!this.state.asnwer_track.length}
                 >
-                  <Text style={{ fontSize: 21, fontWeight: "bold", color: "#707070" }}>NEXT</Text>
+                  <Text style={{ fontSize: 21, fontWeight: "bold", color: "white" }}>RESTART</Text>
                 </TouchableOpacity>
-              ) : null}
+
+                {this.state.answered ? (
+                  <TouchableOpacity
+                    style={{
+                      width: 200,
+                      height: 50,
+                      margin: "auto",
+                      marginTop: 10,
+                      marginBottom: 10,
+                      backgroundColor: "white",
+                      borderRadius: 10,
+                      justifyContent: "center",
+                      disabled: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                    onPress={() => this.addQuestion(generateQuestions())}
+                    disabled={!this.state.answered}
+                  >
+                    <Text style={{ fontSize: 21, fontWeight: "bold", color: "#707070" }}>NEXT</Text>
+                  </TouchableOpacity>
+                ) : null}
+              </View>
             </View>
           </View>
-        </View>
+        </ImageBackground>
       );
     } else {
       return (

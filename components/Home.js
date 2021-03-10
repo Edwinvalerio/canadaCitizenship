@@ -15,21 +15,15 @@ export default function questions({ navigation }) {
             <Image source={require("../assets/images/license.png")} style={{ width: 300, height: 200, padding: 30 }} />
           </View> */}
 
-          <Text style={myStyle.paragraph}>
-            Before we begin, it is important to note that, like with many other things in the US, different states have different rules for driving and transportation. And while most of the
-            regulations and procedures are usually similar, they are not universal. Therefore, for state-specific information
-          </Text>
+          <Text style={myStyle.paragraph}>{"\u2B24"} be a permanent resident</Text>
+          <Text style={myStyle.paragraph}>{"\u2B24"} have lived in Canada for 3 out of the last 5 years</Text>
+          <Text style={myStyle.paragraph}>{"\u2B24"} have filed your taxes, if you need to</Text>
+          <Text style={myStyle.paragraph}>{"\u2B24"} pass a citizenship test</Text>
+          <Text style={myStyle.paragraph}>{"\u2B24"} prove your language skills</Text>
 
           <Text style={myStyle.paragraph}>
-            Learner's permit allows you to operate a vehicle while supervised at all times by an adult in the front seat at least 21 years of age who is licensed and has at least one year of driving
-            experience. According to Junior Operator License (JOL) requirements permit holders under the age of 18 may not drive between 12 a.m. (midnight) and 5 a.m. unless accompanied by their
-            parent or legal guardian (licensed operator with at least one year of driving experience whose license is valid).
-          </Text>
-
-          <Text style={myStyle.paragraph}>You must verify Your lawful presence Social Security Number Massachusetts residency (1 document for a Standard permit, 2 for a REAL ID permit)</Text>
-          <Text style={myStyle.paragraph}>
-            Your parent, guardian, Department of Children and Families, or boarding school headmaster must sign your application. If the person giving consent is not your parent, you must provide
-            proper documentation. You don’t have to get written consent if you are married or legally emancipated.
+            If you’re 18 to 54 years of age on the day you sign your application, you need to take the citizenship test. You’ll need to answer questions about the rights and responsibilities of
+            Canadians and Canada’s:
           </Text>
 
           <Text style={myStyle.paragraph}>{getCurrentDate()}</Text>
@@ -65,7 +59,7 @@ const myStyle = StyleSheet.create({
     fontSize: 15,
     paddingBottom: 10,
     color: "white",
-    textAlign: "center",
+    // textAlign: "center",
   },
   header: {
     fontWeight: "bold",
