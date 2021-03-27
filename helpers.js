@@ -4,7 +4,7 @@ import Constants from "expo-constants";
 // TEST ads UID = ca-app-pub-3940256099942544/6300978111
 // export const ads_Interstitial_id = "ca-app-pub-6057363877580246/8756876087";
 // export const ads_banner_id = "ca-app-pub-3940256099942544/6300978111"; //original -> ca-app-pub-6057363877580246/1962159600"; // test -> "ca-app-pub-3940256099942544/6300978111";
-const productionIDBanner = "ca-app-pub-6057363877580246/2829936999";
+const productionIDBanner = "ca-app-pub-6057363877580246/1264571863";
 const productionIDInterstitial = "ca-app-pub-6057363877580246/2321287644";
 const productionRewardedInterstitial = "ca-app-pub-6057363877580246/4755879292";
 const testRewardedInterstitial = "ca-app-pub-3940256099942544/5224354917";

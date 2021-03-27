@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { View, Text, TouchableOpacity, Button, ImageBackground, Alert, ScrollView, Image } from "react-native";
 import * as Speech from "expo-speech";
 
+import { requestTrackingPermission } from "react-native-tracking-transparency";
+
 // import sound
 import { Audio } from "expo-av";
 // Haptics Engine
@@ -47,7 +49,12 @@ class QuestionScreen extends Component {
 
   // GENERATE QUESTION IF THE LIST IS EMPTY
   async componentDidMount() {
-    // Display a rewarded ad
+    try {
+      const trackingStatus = await requestTrackingPermission();
+      if (trackingStatus === "authorized" || trackingStatus === "unavailable") {
+        // enable tracking features
+      }
+    } catch (error) {}
 
     try {
       await AdMobInterstitial.setAdUnitID(configurations.ads_Interstitial_id); // Test ID, Replace with your-admob-unit-id
